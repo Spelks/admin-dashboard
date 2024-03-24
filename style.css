@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.full-container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr repeat(2, 2fr);
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas:
+    "nav header"
+    "nav body"
+    "nav body";
+}
+
+.admin-nav {
+    background-color: lightblue;
+    grid-area: nav;
+}
+
+.full-header {
+    background-color: aqua;
+    grid-area: header;
+}
+
+.full-body {
+    background-color: lightgreen;
+    grid-area: body;
+}
