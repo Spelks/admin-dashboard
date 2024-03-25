@@ -3,7 +3,15 @@
     src: url('./font/Poppins-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-}  
+}
+
+:root {
+    --bg-color: 0, 0%, 20%;
+    --font-color: 0, 0%, 100%;
+
+    --main-padding: 20px;
+    --small-padding: 10px;
+}
 
 * {
     box-sizing: border-box;
@@ -11,14 +19,38 @@
     padding: 0;
 }
 
+html {
+    font-size: 18px;
+}
+
 body {
     font-family: 'Poppins', Helvetica, Arial, sans-serif;
-}  
+    color: hsl(var(--font-color));
+}
+
+ul {
+    list-style-type: none;
+    line-height: 2;
+}
+
+ul li:hover {
+    box-shadow: 0 3px 2px -2px rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+}
+
+h1 > img {
+    padding-right: var(--small-padding);
+}
 
 .full-container {
     min-height: 100vh;
     display: grid;
-    grid-template-rows: 1fr repeat(2, 2fr);
+    grid-template-rows: 1fr repeat(2, 3fr);
     grid-template-columns: 1fr 4fr;
     grid-template-areas:
     "nav header"
@@ -27,17 +59,23 @@ body {
 }
 
 .admin-nav {
-    background-color: lightblue;
     grid-area: nav;
+    background-color: hsl(var(--bg-color));
+    padding: var(--main-padding);
+}
+
+.nav-menu {
+    padding: var(--main-padding);
 }
 
 .full-header {
-    background-color: aqua;
     grid-area: header;
+    background-color: hsl(var(--bg-color), .9);
+    padding: var(--main-padding);
 }
 
 .full-body {
-    background-color: green;
+    background-color: hsl(var(--bg-color), .6);
     grid-area: body;
 }
 
@@ -52,14 +90,14 @@ body {
 }
 
 .projects > div {
-    background-color: lightgreen;
-    border-left: 8px solid #fff;
-    border-top: 8px solid transparent;
+    background-color: hsl(var(--bg-color));
     border-radius: 20px;
     transition: 0.5s;
+    padding: var(--main-padding);
 }
 
 .projects > div:hover {
-    border: 8px solid #fff;
     transition: 0.5s;
+    transform: translateY(-5px);
+    box-shadow: 0 0 6px 3px rgba(0, 0, 0, 0.3);
 }
