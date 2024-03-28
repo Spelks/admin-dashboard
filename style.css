@@ -6,11 +6,15 @@
 }
 
 :root {
-    --bg-color: 0, 0%, 20%;
-    --font-color: 0, 0%, 100%;
+    --white-color: 0, 0%, 100%;
+    --dark-color: 0, 0%, 20%;
+    --yellow-color: 42, 87%, 55%;
+    --blue-color: 201, 79%, 46%;
 
     --main-padding: 20px;
     --small-padding: 10px;
+
+    --page-font: 'Poppins', Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -23,13 +27,10 @@ html {
     font-size: 18px;
 }
 
-body {
-    font-family: 'Poppins', Helvetica, Arial, sans-serif;
-    color: hsl(var(--font-color));
-}
-
+body,
 a {
-    color: hsl(var(--font-color));
+    font-family: var(--page-font);
+    color: hsl(var(--white-color));
     text-decoration: none;
 }
 
@@ -39,7 +40,7 @@ ul {
 
 .nav-menu > ul:nth-of-type(1) {
     line-height: 2;
-    padding: 20px 0 20px 0;
+    padding: var(--main-padding) 0;
 }
 
 .nav-menu > ul:nth-of-type(2) {
@@ -47,13 +48,12 @@ ul {
 }
 
 ul li:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 1.5px;
+    text-decoration: underline 1.5px;
     cursor: pointer;
 }
 
 h1,
-ul li,
+ul li a,
 .projects > div,
 .projects > a > div {
     display: flex;
@@ -61,9 +61,8 @@ ul li,
 }
 
 h1 > img,
-ul li img,
-.projects div img {
-    padding-right: var(--small-padding);
+svg {
+    margin-right: var(--small-padding);
 }
 
 .full-container {
@@ -79,8 +78,8 @@ ul li img,
 
 .admin-nav {
     grid-area: nav;
-    background-color: hsl(var(--bg-color));
     padding: var(--main-padding);
+    background-color: hsl(var(--blue-color));
 }
 
 .nav-menu {
@@ -89,36 +88,48 @@ ul li img,
 
 .full-header {
     grid-area: header;
-    background-color: hsl(var(--bg-color), .9);
     padding: var(--main-padding);
+    color: hsl(var(--dark-color));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .full-body {
-    background-image:linear-gradient(hsl(var(--bg-color), .6), hsl(var(--bg-color), .2));
+    background-color: hsl(var(--blue-color), .1);
     grid-area: body;
 }
 
 .projects {
     display: grid;
     min-height: 100%;
-    grid-template-rows: repeat(2, 250px);
-    grid-template-columns: repeat(3, 300px);
-    padding: 10px;
-    gap: 10px;
+    grid-template-rows: repeat(3, 220px);
+    grid-template-columns: repeat(2, 350px);
+    padding: var(--main-padding);
+    gap: 20px;
     align-content: center;
 }
 
 .projects > a > div {
-    background-color: hsl(var(--bg-color));
     min-height: 100%;
-    border-radius: 20px;
+    border-radius: 10px;
     transition: 0.5s;
     padding: var(--main-padding);
+    background-color: hsl(var(--white-color));
+    color: hsl(var(--dark-color));
+    border-left: 8px solid hsl(var(--yellow-color));
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .projects > a > div:hover {
+    background-color: hsl(var(--blue-color), .05);
     transition: 0.5s;
     transform: translateY(-10px);
     box-shadow: rgba(0, 0, 0, 0.60) 0px 5px 8px;
     cursor: pointer;
+    border-bottom: 8px solid hsl(var(--yellow-color));
+}
+
+.svg-icon {
+    width: 25px;
+    height: 25px;
+    fill: currentColor;
 }
