@@ -129,12 +129,17 @@ svg {
 }
 
 .projects > a > div:hover {
-    background-color: hsl(var(--blue-color), .05);
     transition: 0.5s;
     transform: translateY(-10px);
     box-shadow: rgba(0, 0, 0, 0.60) 0px 5px 8px;
     cursor: pointer;
     border-bottom: 8px solid hsl(var(--yellow-color));
+}
+
+.projects > a > div:hover .svg-icon {
+    fill: hsl(var(--blue-color));
+    transform: scale(1.2);
+    transition: 0.5s;
 }
 
 input {
@@ -176,11 +181,13 @@ input {
 }
 
 .search-menu {
-    grid-template-columns: 10fr 1fr 1fr;
+    grid-template-columns: 10fr 1fr;
 }
 
 .profile-menu {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 8fr 1fr;
+    align-items: center;
+    gap: 20px;
 }
 
 button {
@@ -204,6 +211,26 @@ button {
 .trending-box {
     padding: var(--main-padding);
     font-size: 0.9rem;
+    display: grid;
+    align-items: center;
+}
+
+.profile-menu > img {
+    width: 70px;
+}
+
+.search-menu > div > img,
+.trending-box > div > img {
+    width: 40px;
+}
+
+.search-menu > div:nth-of-type(2) {
+    gap: 20px;
+}
+
+.trending > div:nth-of-type(2) {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(2 1fr);
 }
   
   
