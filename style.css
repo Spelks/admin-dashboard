@@ -51,12 +51,10 @@ ul {
 
 ul li:hover {
     text-decoration: underline 1.5px;
-    cursor: pointer;
 }
 
 h1,
 ul li a,
-.search-menu,
 .search-menu > div {
     display: flex;
     align-items: center;
@@ -68,12 +66,10 @@ ul li a,
 .profile-menu,
 .full-body,
 .trending,
-.trending-box {
+.trending-box,
+.project-container,
+.project-container > h3 {
     display: grid;
-}
-
-h3 {
-    font-weight: 400;
 }
 
 h1 > img,
@@ -115,7 +111,6 @@ svg {
 }
 
 .projects {
-    min-height: 100%;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     padding: var(--main-padding);
@@ -124,7 +119,6 @@ svg {
 }
 
 .projects > a > div {
-    min-height: 100%;
     border-radius: 10px;
     transition: var(--small-transition);
     padding: var(--main-padding);
@@ -139,8 +133,13 @@ svg {
     transition: var(--small-transition);
     transform: translateY(-10px);
     box-shadow: rgba(0, 0, 0, 0.60) 0px 5px 8px;
-    cursor: pointer;
     border-bottom: 8px solid hsl(var(--yellow-color));
+}
+
+.projects > a > div:hover,
+ul li:hover,
+button {
+    cursor: pointer;
 }
 
 .projects > a > div:hover .svg-icon {
@@ -208,9 +207,8 @@ button {
 }
 
 .profile-menu div:nth-of-type(2) {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--main-padding)
 }
 
@@ -234,7 +232,7 @@ button {
 }
 
 .trending > div:nth-of-type(2) {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 3fr;
     grid-template-rows: repeat(2 1fr);
 }
 
@@ -242,8 +240,9 @@ button:hover {
     background-color: hsl(var(--blue-color), .7);
 }
 
-button span {
+button > span {
     display: inline-block;
+    transform: translateX(10px);
     transition: transform 0.3s ease;
 }
 
@@ -273,6 +272,11 @@ button:hover::after {
 }
 
 .project-container {
-    display: grid;
     justify-content: center;
+}
+
+.project-container > h3 {
+    grid-template-columns: 1fr 6fr;
+    align-items: center;
+    padding-bottom: var(--small-padding);
 }
