@@ -15,4 +15,4 @@ Live link: https://spelks.github.io/admin-dashboard/
 - [Bootstrap Icons](https://icons.getbootstrap.com/) for the various icons used throughout the application.
 
 ## Preview
-![Admin Dashboard Preview](img/admin-page-preview.png){:width="80%"}
+![Admin Dashboard Preview](img/admin-page-preview.png)
